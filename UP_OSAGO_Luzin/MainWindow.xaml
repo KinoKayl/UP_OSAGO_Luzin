@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UP_OSAGO_Luzin"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+               Title="Приложение" Width="1280" Height="800" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+
+
+        <Frame x:Name="MainFrame" Grid.Row="1" HorizontalAlignment="Stretch" Style="{StaticResource BackgroundFrame}" VerticalAlignment="Stretch"  Navigated="MainFrame_Navigated" NavigationUIVisibility="Hidden"/>
+        <TextBlock x:Name="CurrentTimeAndDate" Grid.Row="2" HorizontalAlignment="Right" Margin="15" VerticalAlignment="Center"/>
+        <Button x:Name="goBackButton" Content="Назад" Grid.Row="0" Style="{StaticResource ButtonsForMenu}" HorizontalAlignment="Left" Margin="10" Width="70" Click="goBackButton_Click" FontSize="14"/>
+
     </Grid>
 </Window>
