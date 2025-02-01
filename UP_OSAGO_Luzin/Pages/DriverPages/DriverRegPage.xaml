@@ -49,7 +49,7 @@
 
                 <Label Content="Номер удостоверения" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" FontSize="18" Margin="0,5,0,5" FontFamily="Comic Sans MS" Width="223"/>
                 <TextBox x:Name="UdoNumberBox" Grid.Row="2" Grid.Column="1" ToolTip="Введите логин или почту!" FontSize="16" VerticalContentAlignment="Center" TextChanged="UdoNumberBox_TextChanged" MaxLength="50" FontFamily="Comic Sans MS" Margin="13,10,13,10"/>
-                <TextBlock x:Name="UdoNumberBoxText" Text="1122333444" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Gray" FontSize="16" Margin="27,0,0,0" MouseDown="PasswordBoxText_MouseDown" FontFamily="Comic Sans MS" Height="23" Width="98"/>
+                <TextBlock x:Name="UdoNumberBoxText" Text="1122333444" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Gray" FontSize="16" Margin="27,0,0,0" MouseDown="UdoNumberBoxText_MouseDown" FontFamily="Comic Sans MS" Height="23" Width="98"/>
 
                 <Button x:Name="BtnCancel" Content="Отмена" Grid.Row="6" Grid.Column="0" Style="{StaticResource ButtonAuthRegForms}" Width="100" Height="34" FontSize="16" HorizontalAlignment="Left" Click="BtnCancel_Click" ToolTip="Нажав на кнопку, вы вернётесь на форму авторизации." VerticalAlignment="Center"/>
                 <Button Content="Регистрация" x:Name="RegButton" Grid.Row="6" Grid.Column="2" Style="{StaticResource ButtonAuthRegForms}" Width="220" FontSize="16" HorizontalAlignment="Center" ToolTip="Нажав на кнопку, вы будете зарегистрированы в систему." Click="RegButton_Click" Margin="0,6,0,0"/>

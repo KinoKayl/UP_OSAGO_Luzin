@@ -46,7 +46,7 @@ namespace UP_OSAGO_Luzin.Pages.DriverPages
             if (policy != null)
             {
                 UdoNumberBox.Text = policy.LicenseSeriesNumber;
-                FIOBox.Text = policy.f;
+                FIOBox.Text = policy.LicenseSeriesNumber;
                 TCNumberBox.Text = policy.LicensePlate;
             }
         }
