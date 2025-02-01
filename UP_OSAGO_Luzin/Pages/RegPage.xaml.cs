@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -27,7 +29,7 @@ namespace UP_OSAGO_Luzin.Pages
         private static readonly Regex EmailRegex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
         private readonly Entities db;
 
-        private User_ currentuser = new User_();
+        private Users currentuser = new Users();
         public RegPage()
         {
             InitializeComponent();
@@ -138,7 +140,7 @@ namespace UP_OSAGO_Luzin.Pages
                     return;
                 }
 
-                if (db.User_.Any(u => u.Login == login))
+                if (db.Users.Any(u => u.Login == login))
                 {
                     MessageBox.Show("Пользователь с таким логином уже зарегистрирован в системе!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
                     LoginBox.Text = "";
@@ -169,7 +171,7 @@ namespace UP_OSAGO_Luzin.Pages
                     return;
                 }
 
-                var newUser = new User_
+                var newUser = new Users
                 {
                     Login = login,
                     Password = password,
@@ -177,7 +179,7 @@ namespace UP_OSAGO_Luzin.Pages
                     Role = Role,
                     Photo = foto
                 };
-                db.User_.Add(newUser);
+                db.Users.Add(newUser);
                 db.SaveChanges();
 
                 MessageBox.Show("Регистрация завершена!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);

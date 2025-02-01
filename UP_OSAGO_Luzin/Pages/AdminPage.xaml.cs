@@ -26,7 +26,7 @@ namespace UP_OSAGO_Luzin.Pages
             InitializeComponent();
             db = new Entities();
 
-            DataGridUsers.ItemsSource = db.User_.ToList();
+            DataGridUsers.ItemsSource = db.Users.ToList();
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -36,19 +36,19 @@ namespace UP_OSAGO_Luzin.Pages
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            // NavigationService?.Navigate(new AddUserPage((sender as Button).DataContext as User_));
-            var usersForRemoving = DataGridUsers.SelectedItems.Cast<User_>().ToList();
+            // NavigationService?.Navigate(new AddUserPage((sender as Button).DataContext as Users));
+            var usersForRemoving = DataGridUsers.SelectedItems.Cast<Users>().ToList();
 
             if (MessageBox.Show($"Вы точно хотите удалить записи в количестве {usersForRemoving.Count()} элементов?", "Внимание",
                             MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
-                    Entities.GetContext().User_.RemoveRange(usersForRemoving);
+                    Entities.GetContext().Users.RemoveRange(usersForRemoving);
                     Entities.GetContext().SaveChanges();
                     MessageBox.Show("Данные успешно удалены!");
 
-                    DataGridUsers.ItemsSource = Entities.GetContext().User_.ToList();
+                    DataGridUsers.ItemsSource = Entities.GetContext().Users.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -59,7 +59,7 @@ namespace UP_OSAGO_Luzin.Pages
 
         private void RedactButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new AddUserPage((sender as Button).DataContext as User_));
+            NavigationService?.Navigate(new AddUserPage((sender as Button).DataContext as Users));
 
         }
 
@@ -68,7 +68,7 @@ namespace UP_OSAGO_Luzin.Pages
             if (Visibility == Visibility.Visible)
             {
                 Entities.GetContext().ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
-                DataGridUsers.ItemsSource = Entities.GetContext().User_.ToList();
+                DataGridUsers.ItemsSource = Entities.GetContext().Users.ToList();
             }
 
 

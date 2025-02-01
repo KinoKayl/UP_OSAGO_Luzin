@@ -80,7 +80,7 @@ namespace UP_OSAGO_Luzin.Pages
                 return;
             }
 
-            var user = db.User_.AsNoTracking().FirstOrDefault(u => u.Login == login && u.Password == hashedPassword);
+            var user = db.Users.AsNoTracking().FirstOrDefault(u => u.Login == login && u.Password == hashedPassword);
 
             if (user == null)
             {
@@ -91,6 +91,19 @@ namespace UP_OSAGO_Luzin.Pages
             MessageBox.Show("Вы авторизовались!");
 
             ((App)Application.Current).CurrentUserID = user.ID;
+            App.Current.Resources["Login"] = login;
+
+            
+            int? userId = db.Users
+                    .AsNoTracking()
+                    .Where(u => u.Login == login)
+                    .Select(u => (int?)u.ID)
+                    .FirstOrDefault();
+
+            int number = userId ?? -1;
+
+            App.Current.Resources["CurrentUserId"] = userId;
+
 
             if (user.Role == 1)
             {

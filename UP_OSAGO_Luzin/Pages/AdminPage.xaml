@@ -18,7 +18,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Login}"/>
                 <DataGridTextColumn Header="Пароль" Width="*" Binding="{Binding Password}"/>
-                <DataGridTextColumn Header="Роль" Width="*" Binding="{Binding Role1.Title}"/>
+                <DataGridTextColumn Header="Роль" Width="*" Binding="{Binding Role}"/>
                 <DataGridTextColumn Header="ФИО" Width="*" Binding="{Binding FIO}"/>
                 <DataGridTextColumn Header="Фото" Width="*" Binding="{Binding PHOTO}"/>
 
